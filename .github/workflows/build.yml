@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docker:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        version: [ 7.4, 8.2 ]
+        flavor: [ apache, cli, fpm ]
+
+    steps:
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Build and push ${{ matrix.flavor }} image
+        uses: docker/build-push-action@v4
+        with:
+          context: ${{ matrix.version }}/${{ matrix.flavor }}
+          push: true
+          tags: ghcr.io/colinmollenhour/docker-openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}

@@ -1,9 +1,9 @@
 FROM php:7.4-fpm
 MAINTAINER Tomas Gerulaitis <tomas.gerulaitis@meanbee.com>
 
-ENV PHP_EXT_APCU_VERSION "5.1.18"
-ENV PHP_EXT_MEMCACHED_VERSION "3.1.5"
-ENV PHP_EXT_XDEBUG_VERSION "2.9.0"
+ENV PHP_EXT_APCU_VERSION "5.1.22"
+ENV PHP_EXT_MEMCACHED_VERSION "3.2.0"
+ENV PHP_EXT_XDEBUG_VERSION "2.9.8"
 
 
 RUN build_packages="libpng-dev libfreetype6-dev libjpeg62-turbo-dev libxml2-dev libxslt1-dev libmemcached-dev sendmail-bin sendmail libicu-dev libzip-dev libonig-dev" \
@@ -26,6 +26,7 @@ RUN build_packages="libpng-dev libfreetype6-dev libjpeg62-turbo-dev libxml2-dev 
 COPY php.ini /usr/local/etc/php/conf.d/zz-magento.ini
 
 ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["php-fpm"]

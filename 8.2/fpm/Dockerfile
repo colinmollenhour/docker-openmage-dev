@@ -1,9 +1,9 @@
-FROM php:7.4-apache
+FROM php:8.2-fpm
 MAINTAINER Tomas Gerulaitis <tomas.gerulaitis@meanbee.com>
 
 ENV PHP_EXT_APCU_VERSION "5.1.22"
 ENV PHP_EXT_MEMCACHED_VERSION "3.2.0"
-ENV PHP_EXT_XDEBUG_VERSION "2.9.8"
+ENV PHP_EXT_XDEBUG_VERSION "3.2.1"
 
 
 RUN build_packages="libpng-dev libfreetype6-dev libjpeg62-turbo-dev libxml2-dev libxslt1-dev libmemcached-dev sendmail-bin sendmail libicu-dev libzip-dev libonig-dev" \
@@ -29,8 +29,4 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-RUN a2enmod rewrite headers
-
-COPY magento.conf /etc/apache2/conf-enabled/
-
-CMD ["apache2-foreground"]
+CMD ["php-fpm"]

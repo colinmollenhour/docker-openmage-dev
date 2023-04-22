@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+<?php echo "#!/bin/bash\n" ?>
 
 [ "$DEBUG" = "true" ] && set -x
 

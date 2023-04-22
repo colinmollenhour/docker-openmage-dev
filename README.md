@@ -1,4 +1,4 @@
-# meanbee/magento
+# colinmollenhour/docker-openmage
 
 [![Build Status][ico-travis]][link-travis]
 [![Docker Build Status][ico-dockerbuild]][link-dockerhub]
@@ -9,33 +9,19 @@ A collection of Docker images for running Magento application web servers and co
 
 # Supported tags and respective `Dockerfile` links
 
-- [`7.4-apache` (*7.4/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.4/apache/Dockerfile)
-- [`7.4-cli` (*7.4/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.4/cli/Dockerfile)
-- [`7.4-fpm` (*7.4/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.4/fpm/Dockerfile)
-- [`7.3-apache` (*7.3/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.3/apache/Dockerfile)
-- [`7.3-cli` (*7.3/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.3/cli/Dockerfile)
-- [`7.3-fpm` (*7.3/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.3/fpm/Dockerfile)
-- [`7.2-apache` (*7.2/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.2/apache/Dockerfile)
-- [`7.2-cli` (*7.2/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.2/cli/Dockerfile)
-- [`7.2-fpm` (*7.2/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.2/fpm/Dockerfile)
-- [`7.1-apache` (*7.1/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.1/apache/Dockerfile)
-- [`7.1-cli` (*7.1/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.1/cli/Dockerfile)
-- [`7.1-fpm` (*7.1/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.1/fpm/Dockerfile)
-- [`7.0-apache` (*7.0/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.0/apache/Dockerfile)
-- [`7.0-cli` (*7.0/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.0/cli/Dockerfile)
-- [`7.0-fpm` (*7.0/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/7.0/fpm/Dockerfile)
-- [`5.6-apache` (*5.6/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.6/apache/Dockerfile)
-- [`5.6-cli` (*5.6/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.6/cli/Dockerfile)
-- [`5.6-fpm` (*5.6/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.6/fpm/Dockerfile)
-- [`5.5-apache` (*5.5/apache/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.5/apache/Dockerfile)
-- [`5.5-cli` (*5.5/cli/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.5/cli/Dockerfile)
-- [`5.5-fpm` (*5.5/fpm/Dockerfile*)](https://github.com/meanbee/docker-magento/blob/master/5.5/fpm/Dockerfile)
+- [`8.2-apache` (*8.2/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/apache/Dockerfile)
+- [`8.2-cli` (*8.2/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/cli/Dockerfile)
+- [`8.2-fpm` (*8.2/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/fpm/Dockerfile)
+- [`7.4-apache` (*7.4/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/apache/Dockerfile)
+- [`7.4-cli` (*7.4/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/cli/Dockerfile)
+- [`7.4-fpm` (*7.4/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/fpm/Dockerfile)
+
 
 # Usage
 
 Since Magento requires several services working together, it recommended to use docker-compose with these images.
 
-See [docker-compose.yml](docker-compose.yml) for a sample configuration.
+See [OpenMage dev/openmage/docker-compose.yml](https://github.com/OpenMage/magento-lts/blob/main/dev/openmage/docker-compose.yml) for a sample configuration.
 
 # Options
 
@@ -118,11 +104,3 @@ The source template for each target file is selected from the `src/` directory u
 4. `<target-file-name>`
 
 Individual templates may include other templates as partials.
-
-[ico-travis]: https://img.shields.io/travis/meanbee/docker-magento.svg?style=flat-square
-[ico-dockerbuild]: https://img.shields.io/docker/build/meanbee/magento.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/docker/pulls/meanbee/magento.svg?style=flat-square
-[ico-dockerstars]: https://img.shields.io/docker/stars/meanbee/magento.svg?style=flat-square
-
-[link-travis]: https://travis-ci.org/meanbee/docker-magento
-[link-dockerhub]: https://hub.docker.com/r/meanbee/magento/

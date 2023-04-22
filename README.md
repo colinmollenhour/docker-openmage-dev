@@ -4,10 +4,8 @@ This is a collection of Docker images for running OpenMage LTS.
 
 - [`8.2-apache` (*8.2/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/apache/Dockerfile)
 - [`8.2-cli` (*8.2/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/cli/Dockerfile)
-- [`8.2-fpm` (*8.2/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/fpm/Dockerfile)
 - [`7.4-apache` (*7.4/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/apache/Dockerfile)
 - [`7.4-cli` (*7.4/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/cli/Dockerfile)
-- [`7.4-fpm` (*7.4/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/fpm/Dockerfile)
 
 
 # Usage

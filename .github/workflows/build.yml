@@ -36,3 +36,5 @@ jobs:
           context: ${{ matrix.version }}/${{ matrix.flavor }}
           push: true
           tags: ghcr.io/colinmollenhour/docker-openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
+          cache-from: type=registry,ref=colinmollenhour/docker-openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
+          cache-to: type=inline

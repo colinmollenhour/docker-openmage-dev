@@ -1,4 +1,5 @@
-This is a collection of Docker images for running OpenMage LTS.
+This is a collection of Docker images for running [OpenMage LTS](https://github.com/OpenMage/magento-lts).
+The images are published only to [GitHub Container Registry](https://github.com/colinmollenhour/docker-openmage-dev/pkgs/container/docker-openmage-dev).
 
 # Supported tags and respective `Dockerfile` links
 
@@ -9,8 +10,6 @@ This is a collection of Docker images for running OpenMage LTS.
 
 
 # Usage
-
-Since Magento requires several services working together, it recommended to use docker-compose with these images.
 
 See [OpenMage dev/openmage/docker-compose.yml](https://github.com/OpenMage/magento-lts/blob/main/dev/openmage/docker-compose.yml) for a sample configuration.
 
@@ -69,7 +68,7 @@ A lot of the configuration for each image is the same, with the difference being
 For this reason we use `php` to build the `Dockerfile` from a set of templates in `src/`.  The `Dockerfile` should still
 be published to the repository due to Docker Hub needing a `Dockerfile` to build from.
 
-To build all `Dockerfile`s, run the `builder.php` script before committing any changes:
+To build all `Dockerfile`s after editing the files in `src/`, run the `builder.php` script before committing any changes:
 
     docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/src php:8.2 php /src/builder.php
 

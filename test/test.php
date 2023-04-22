@@ -33,21 +33,16 @@ $required_extensions = array(
   'gd',
   'hash',
   'iconv',
-  'memcached',
+  'redis',
   'pcre',
   'pdo',
   'pdo_mysql',
   'simplexml',
   'xsl',
   'xdebug',
-  'IonCube Loader',
   'zip',
   'intl'
 );
-
-if (version_compare(phpversion(), '7.2', '<')) {
-  $required_extensions[] = 'mcrypt';
-}
 
 foreach ($required_extensions as $extension) {
   if (!extension_loaded($extension)) {
@@ -60,6 +55,8 @@ foreach ($required_extensions as $extension) {
 // Output result
 if ($checker->isOK()) {
     printf("\nTEST OK\n");
+    exit(0);
 } else {
     printf("\nTEST NOT OK\n");
+    exit(1);
 }

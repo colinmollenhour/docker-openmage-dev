@@ -78,7 +78,7 @@ A lot of the configuration for each image is the same, with the difference being
 
 To build all `Dockerfile`s, run the `builder.php` script in the `php:7` Docker image:<!-- Yo dawg, I heard you like Docker images... -->
 
-    docker run --rm -it -v $(pwd):/src php:7 php /src/builder.php
+    docker run --rm -it -v $(pwd):/src php:8.2 php /src/builder.php
 
 ## Adding new images to the build config
 

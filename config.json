@@ -5,7 +5,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "2.9.8"
       },
       "entrypoint.sh": {
@@ -21,7 +21,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "2.9.8",
         "mysql_client_package": "default-mysql-client"
       },
@@ -50,7 +50,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "2.9.8"
       },
       "entrypoint.sh": {
@@ -65,7 +65,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "3.2.1"
       },
       "entrypoint.sh": {
@@ -81,7 +81,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "3.2.1",
         "mysql_client_package": "default-mysql-client"
       },
@@ -110,7 +110,7 @@
     "files": {
       "Dockerfile": {
         "php_ext_acpu_version": "5.1.22",
-        "php_ext_memcached_version": "3.2.0",
+        "php_ext_redis_version": "5.3.7",
         "php_ext_xdebug_version": "3.2.1"
       },
       "entrypoint.sh": {

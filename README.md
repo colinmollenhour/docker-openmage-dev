@@ -1,11 +1,4 @@
-# colinmollenhour/docker-openmage
-
-[![Build Status][ico-travis]][link-travis]
-[![Docker Build Status][ico-dockerbuild]][link-dockerhub]
-[![Docker Pulls][ico-downloads]][link-dockerhub]
-[![Docker Stars][ico-dockerstars]][link-dockerhub]
-
-A collection of Docker images for running Magento application web servers and command line tools.
+This is a collection of Docker images for running OpenMage LTS.
 
 # Supported tags and respective `Dockerfile` links
 
@@ -74,15 +67,17 @@ Some of the commands use additional environment variables for configuration:
 
 # Building
 
-A lot of the configuration for each image is the same, with the difference being the base image that they're extending from.  For this reason we use `php` to build the `Dockerfile` from a set of templates in `src/`.  The `Dockerfile` should still be published to the repository due to Docker Hub needing a `Dockerfile` to build from.
+A lot of the configuration for each image is the same, with the difference being the base image that they're extending from.
+For this reason we use `php` to build the `Dockerfile` from a set of templates in `src/`.  The `Dockerfile` should still
+be published to the repository due to Docker Hub needing a `Dockerfile` to build from.
 
-To build all `Dockerfile`s, run the `builder.php` script in the `php:7` Docker image:<!-- Yo dawg, I heard you like Docker images... -->
+To build all `Dockerfile`s, run the `builder.php` script before committing any changes:
 
-    docker run --rm -it -v $(pwd):/src php:8.2 php /src/builder.php
+    docker run --rm -it -u $(id -u):$(id -g) -v $(pwd):/src php:8.2 php /src/builder.php
 
 ## Adding new images to the build config
 
-The build configuration is controlled by the `config.json` file. Yeah element in the top level hash is a new build target, using the following syntax:
+The build configuration is controlled by the `config.json` file using the following syntax for each build target:
 
     "<target-name>": {
         "version": "<php-version>",
@@ -104,3 +99,7 @@ The source template for each target file is selected from the `src/` directory u
 4. `<target-file-name>`
 
 Individual templates may include other templates as partials.
+
+# Credit
+
+This is a fork of [meanbee/docker-magento](https://github.com/meanbee/docker-magento) which appears to no longer be maintained.

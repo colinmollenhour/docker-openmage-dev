@@ -17,11 +17,11 @@ RUN build_packages="<?php echo implode(' ', $buildPackages) ?>" \
     && docker-php-ext-configure gd <?php if ($gdNeedsDirs): ?>--with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/<?php else: ?>--with-freetype --with-jpeg<?php endif; ?> \
     && docker-php-ext-install gd \
     && docker-php-ext-install mbstring \
-    && echo "no" | pecl install redis-$PHP_EXT_REDIS_VERSION && docker-php-ext-enable redis \
+    && echo "no" | pecl -q install redis-$PHP_EXT_REDIS_VERSION && docker-php-ext-enable redis \
     && docker-php-ext-install pcntl \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install soap \
-    && yes | pecl install xdebug-$PHP_EXT_XDEBUG_VERSION && docker-php-ext-enable xdebug \
+    && yes | pecl -q install xdebug-$PHP_EXT_XDEBUG_VERSION && docker-php-ext-enable xdebug \
     && docker-php-ext-install xsl \
     && docker-php-ext-install zip \
     && docker-php-ext-install intl \

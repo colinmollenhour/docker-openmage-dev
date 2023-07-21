@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         version: [ 7.4, 8.2 ]
-        flavor: [ apache, cli ]
+        flavor: [ apache, cli, fpm ]
 
     steps:
       -

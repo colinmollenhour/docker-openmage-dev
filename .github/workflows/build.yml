@@ -34,6 +34,13 @@ jobs:
         run: |
           docker run --rm -v $(pwd)/test:/app openmage-dev:${{ matrix.version }}-${{ matrix.flavor }} php /app/test.php
       -
+        name: Scan for vulnerabilities
+        id: scan
+        uses: crazy-max/ghaction-container-scan@v2
+        with:
+          image: openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
+          dockerfile: ./${{ matrix.version }}/${{ matrix.flavor }}/Dockerfile
+      -
         name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:

@@ -1,12 +1,14 @@
 This is a collection of Docker images for running [OpenMage LTS](https://github.com/OpenMage/magento-lts).
-The images are published only to [GitHub Container Registry](https://github.com/colinmollenhour/docker-openmage-dev/pkgs/container/docker-openmage-dev).
+The images are published only to [GitHub Container Registry](https://github.com/colinmollenhour/docker-openmage/pkgs/container/docker-openmage).
 
 # Supported tags and respective `Dockerfile` links
 
-- [`8.2-apache` (*8.2/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/apache/Dockerfile)
-- [`8.2-cli` (*8.2/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/8.2/cli/Dockerfile)
-- [`7.4-apache` (*7.4/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/apache/Dockerfile)
-- [`7.4-cli` (*7.4/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage-dev/blob/master/7.4/cli/Dockerfile)
+- [`8.2-apache` (*8.2/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/8.2/apache/Dockerfile)
+- [`8.2-cli` (*8.2/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/8.2/cli/Dockerfile)
+- [`8.2-fpm` (*8.2/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/8.2/fpm/Dockerfile)
+- [`7.4-apache` (*7.4/apache/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/7.4/apache/Dockerfile)
+- [`7.4-cli` (*7.4/cli/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/7.4/cli/Dockerfile)
+- [`7.4-fpm` (*7.4/fpm/Dockerfile*)](https://github.com/colinmollenhour/docker-openmage/blob/master/7.4/fpm/Dockerfile)
 
 
 # Usage

@@ -40,6 +40,9 @@ jobs:
         with:
           image: openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
           dockerfile: ./${{ matrix.version }}/${{ matrix.flavor }}/Dockerfile
+          annotations: true
+          severity: HIGH,CRITICAL
+          #severity_threshold: CRITICAL
       -
         name: Login to GitHub Container Registry
         uses: docker/login-action@v2
@@ -53,6 +56,6 @@ jobs:
         with:
           context: ${{ matrix.version }}/${{ matrix.flavor }}
           push: true
-          tags: ghcr.io/colinmollenhour/docker-openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
-          cache-from: type=registry,ref=colinmollenhour/docker-openmage-dev:${{ matrix.version }}-${{ matrix.flavor }}
+          tags: ghcr.io/colinmollenhour/docker-openmage:${{ matrix.version }}-${{ matrix.flavor }}
+          cache-from: type=registry,ref=colinmollenhour/docker-openmage:${{ matrix.version }}-${{ matrix.flavor }}
           cache-to: type=inline

@@ -1,4 +1,19 @@
 #!/usr/bin/env bash
+set -e
 
-cron && \
-tail -f -n0 /var/log/cron.log
+shutdown_cron() {
+  set +e
+  echo "[SHUTDOWN] Shutting down cron"
+  kill $cronpid $tailpid
+  wait $cronpid $tailpid
+  exit $?
+}
+
+trap "shutdown_cron" HUP INT QUIT TERM USR1
+
+cron -f &
+cronpid=$!
+echo "[STARTUP] Cron PID: $cronpid"
+tail -f -n0 /var/log/cron.log &
+tailpid=$!
+wait $cronpid $tailpid

@@ -43,6 +43,36 @@ the container with the following environment variable set (replacing the `{}` pl
 
 Note: If you're using PhpStorm, your IDE Key is probably `phpstorm`.
 
+## PHP-FPM
+
+The PHP-FPM image uses the `[www]` pool by default which uses the "dynamic" process manager. The following
+settings may be configured using environment variables which will update the template file at runtime.
+
+```
+[www]
+user = www-data
+group = www-data
+pm = dynamic
+pm.max_children = ${PM_MAX_CHILDREN}
+pm.start_servers = ${PM_START_SERVERS}
+pm.min_spare_servers = ${PM_MIN_SPARE_SERVERS}
+pm.max_spare_servers = ${PM_MAX_SPARE_SERVERS}
+```
+
+The defaults are:
+
+- PM_MAX_CHILDREN = 5
+- PM_START_SERVERS = 2
+- PM_MIN_SPARE_SERVERS = 1
+- PM_MAX_SPARE_SERVERS = 3
+
+To make more advanced changes to the pool settings you should either:
+
+1. `COPY` or mount your own `/usr/local/etc/php-fpm.d/www.conf` file into the container
+2. Overwrite `/usr/local/etc/php-fpm.d/www.conf.template` with your own modified version
+3. Delete the `/usr/local/etc/php-fpm.d/www.conf.template` file and provide your own `.conf` file into `/usr/local/etc/php-fpm.d/` to use a different pool name altogether
+4. Add a file like `/usr/local/etc/php-fpm.d/zz-www.conf.template` that is loaded after `www.conf`
+
 # Command Line Tools
 
 The `cli` images have a number of useful Magento tools pre-installed:

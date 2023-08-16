@@ -25,5 +25,14 @@ if [ "$XDEBUG_CONFIG" ]; then
     done
 fi
 
+# Configure PHP-FPM using environment variables
+if test -f /usr/local/etc/php-fpm.d/www.conf.template && ! test -f /usr/local/etc/php-fpm.d/www.conf; then
+    PM_MAX_CHILDREN=${PM_MAX_CHILDREN:-5} \
+    PM_START_SERVERS=${PM_START_SERVERS:-2} \
+    PM_MIN_SPARE_SERVERS=${PM_MIN_SPARE_SERVERS:-1} \
+    PM_MAX_SPARE_SERVERS=${PM_MAX_SPARE_SERVERS:-3} \
+    envsubst < /usr/local/etc/php-fpm.d/www.conf.template > /usr/local/etc/php-fpm.d/www.conf
+fi
+
 # Execute the supplied command
 exec "$@"

@@ -56,7 +56,8 @@
       "entrypoint.sh": {
         "executable": true
       },
-      "php.ini": {}
+      "php.ini": {},
+      "www.conf": {}
     }
   },
   "8.2-apache": {
@@ -116,7 +117,8 @@
       "entrypoint.sh": {
         "executable": true
       },
-      "php.ini": {}
+      "php.ini": {},
+      "www.conf": {}
     }
   }
 }

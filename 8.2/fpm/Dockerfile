@@ -26,4 +26,7 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
+RUN rm /usr/local/etc/php-fpm.d/www.conf
+COPY www.conf /usr/local/etc/php-fpm.d/www.conf.template
+
 CMD ["php-fpm"]

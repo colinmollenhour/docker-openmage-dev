@@ -1,4 +1,5 @@
 <?php echo "#!/bin/bash\n" ?>
+set -e
 
 [ "$DEBUG" = "true" ] && set -x
 
@@ -25,6 +26,7 @@ if [ "$XDEBUG_CONFIG" ]; then
     done
 fi
 
+<?php if ($flavour === 'php-fpm'): ?>
 # Configure PHP-FPM using environment variables
 if test -f /usr/local/etc/php-fpm.d/www.conf.template && ! test -f /usr/local/etc/php-fpm.d/www.conf; then
     export PM_MAX_CHILDREN=${PM_MAX_CHILDREN:-5}
@@ -33,6 +35,12 @@ if test -f /usr/local/etc/php-fpm.d/www.conf.template && ! test -f /usr/local/et
     export PM_MAX_SPARE_SERVERS=${PM_MAX_SPARE_SERVERS:-3}
     while read -r line; do eval echo \"$line\"; done < /usr/local/etc/php-fpm.d/www.conf.template > /usr/local/etc/php-fpm.d/www.conf
 fi
+<?php elseif ($flavour === 'frankenphp'): ?>
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+        set -- frankenphp run "$@"
+fi
+<?php endif ?>
 
 # Execute the supplied command
 exec "$@"

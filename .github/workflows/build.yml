@@ -13,7 +13,10 @@ jobs:
     strategy:
       matrix:
         version: [ 7.4, 8.2 ]
-        flavor: [ apache, cli, fpm ]
+        flavor: [ apache, cli, fpm, frankenphp ]
+        exclude:
+          - version: 7.4
+            flavor: frankenphp
 
     steps:
       -

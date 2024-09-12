@@ -1,0 +1,27 @@
+{
+        {$CADDY_GLOBAL_OPTIONS}
+        default_sni {$SERVER_NAME:localhost}
+        debug
+
+        frankenphp {
+                {$FRANKENPHP_CONFIG}
+        }
+}
+
+{$SERVER_NAME:localhost} {
+    root * pub/default/
+    
+    route {
+        @indexFiles file {
+            try_files {path} {path}/index.php index.php
+            split_path .php
+        }
+        rewrite @indexFiles {http.matchers.file.relative}
+
+        @phpFiles path *.php
+        php @phpFiles
+        file_server
+
+        respond 404
+    }
+}

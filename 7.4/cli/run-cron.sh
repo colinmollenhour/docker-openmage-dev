@@ -13,6 +13,7 @@ trap "shutdown_cron" HUP INT QUIT TERM USR1
 cron -f &
 cronpid=$!
 echo "[STARTUP] Cron PID: $cronpid"
+touch /var/log/cron.log
 tail -f -n0 /var/log/cron.log &
 tailpid=$!
 wait $cronpid $tailpid

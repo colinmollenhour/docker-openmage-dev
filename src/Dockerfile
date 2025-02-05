@@ -4,7 +4,7 @@ ENV PHP_EXT_APCU_VERSION="<?php echo $php_ext_acpu_version ?>"
 ENV PHP_EXT_REDIS_VERSION="<?php echo $php_ext_redis_version ?>"
 ENV PHP_EXT_XDEBUG_VERSION="<?php echo $php_ext_xdebug_version ?>"
 
-<?php $buildPackages = ['libpng-dev', 'libfreetype6-dev', 'libjpeg62-turbo-dev', 'libxml2-dev', 'libxslt1-dev', 'sendmail-bin', 'sendmail', 'libicu-dev'] ?>
+<?php $buildPackages = ['libpng-dev', 'libfreetype6-dev', 'libjpeg62-turbo-dev', 'libxml2-dev', 'libxslt1-dev', 'sendmail-bin', 'sendmail', 'libicu-dev', 'libssl-dev'] ?>
 <?php $installLibZip = version_compare($version, '7.3', '>=') ?>
 <?php $installOniguruma = version_compare($version, '7.4', '>=') ?>
 <?php $gdNeedsDirs = version_compare($version, '7.4', '<') ?>

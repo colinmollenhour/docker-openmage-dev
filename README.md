@@ -26,14 +26,6 @@ the following environment variable:
 
 *Note:* The cron container must be run as `root` (this is the default) and the cron task will automatically be run as the `www-data` user.
 
-## Sendmail
-
-All images have sendmail installed for emails, however it is not enabled by default. To enable sendmail, use the following environment variable:
-
-    ENABLE_SENDMAIL=true
-
-*Note:* If sendmail has been enabled, make sure the container has a hostname assigned using the `hostname` field in `docker-compose.yml` or `--hostname` parameter for `docker run`. If the container does not have a hostname set, sendmail will attempt to discover the hostname on startup, blocking for a prolonged period of time.
-
 ## Xdebug
 
 Xdebug is installed and enabled on all the images by default. To configure it for remote debugging, start

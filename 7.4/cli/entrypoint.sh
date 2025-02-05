@@ -11,11 +11,6 @@ if [ "$ENABLE_CRON" == "true" ]; then
   service rsyslog start
 fi
 
-# Configure Sendmail if required
-if [ "$ENABLE_SENDMAIL" == "true" ]; then
-    /etc/init.d/sendmail start
-fi
-
 # Configure Xdebug
 if [ "$XDEBUG_CONFIG" ]; then
     echo "" > /usr/local/etc/php/conf.d/zz-xdebug.ini

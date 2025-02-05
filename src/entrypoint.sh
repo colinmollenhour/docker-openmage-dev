@@ -21,7 +21,7 @@ if [ "$XDEBUG_CONFIG" ]; then
     done
 fi
 
-<?php if ($flavour === 'php-fpm'): ?>
+<?php if ($flavour === 'fpm'): ?>
 # Configure PHP-FPM using environment variables
 if test -f /usr/local/etc/php-fpm.d/www.conf.template && ! test -f /usr/local/etc/php-fpm.d/www.conf; then
     export PM_MAX_CHILDREN=${PM_MAX_CHILDREN:-5}

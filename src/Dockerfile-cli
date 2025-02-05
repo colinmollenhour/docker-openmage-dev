@@ -1,6 +1,6 @@
 <?php include "Dockerfile"; ?>
 
-ENV BIN_DIR "/usr/local/bin"
+ENV BIN_DIR="/usr/local/bin"
 RUN apt-get update \
     && apt-get install -y cron git groff <?php echo $mysql_client_package ?> rsyslog sudo unzip \
     && echo "* * * * * /var/www/html/cron.sh" | sudo -u www-data crontab - \

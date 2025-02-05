@@ -1,8 +1,8 @@
 FROM <?php printf("php:%s-%s", $version, $flavour) ?>
 
-ENV PHP_EXT_APCU_VERSION "<?php echo $php_ext_acpu_version ?>"
-ENV PHP_EXT_REDIS_VERSION "<?php echo $php_ext_redis_version ?>"
-ENV PHP_EXT_XDEBUG_VERSION "<?php echo $php_ext_xdebug_version ?>"
+ENV PHP_EXT_APCU_VERSION="<?php echo $php_ext_acpu_version ?>"
+ENV PHP_EXT_REDIS_VERSION="<?php echo $php_ext_redis_version ?>"
+ENV PHP_EXT_XDEBUG_VERSION="<?php echo $php_ext_xdebug_version ?>"
 
 <?php $buildPackages = ['libpng-dev', 'libfreetype6-dev', 'libjpeg62-turbo-dev', 'libxml2-dev', 'libxslt1-dev', 'sendmail-bin', 'sendmail', 'libicu-dev'] ?>
 <?php $installLibZip = version_compare($version, '7.3', '>=') ?>
@@ -12,8 +12,9 @@ ENV PHP_EXT_XDEBUG_VERSION "<?php echo $php_ext_xdebug_version ?>"
 <?php if ($installOniguruma): $buildPackages[] = 'libonig-dev'; endif ?>
 
 RUN build_packages="<?php echo implode(' ', $buildPackages) ?>" \
-    && apt-get update && apt-get install -y $build_packages \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $build_packages \
     && yes "" | pecl install apcu-$PHP_EXT_APCU_VERSION && docker-php-ext-enable apcu \
+    && docker-php-ext-install ftp \
     && docker-php-ext-configure gd <?php if ($gdNeedsDirs): ?>--with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/<?php else: ?>--with-freetype --with-jpeg<?php endif; ?> \
     && docker-php-ext-install gd \
     && docker-php-ext-install mbstring \

@@ -30,6 +30,7 @@ $checker->info(sprintf("PHP Version: %s", phpversion()));
 $required_extensions = array(
   'curl',
   'dom',
+  'ftp',
   'gd',
   'hash',
   'iconv',

@@ -1,10 +1,11 @@
 FROM dunglas/frankenphp:latest-php8.2-bookworm
-ENV PHP_EXT_APCU_VERSION "5.1.22"
-ENV PHP_EXT_REDIS_VERSION "5.3.7"
-ENV PHP_EXT_XDEBUG_VERSION "3.2.1"
+ENV PHP_EXT_APCU_VERSION="5.1.22"
+ENV PHP_EXT_REDIS_VERSION="5.3.7"
+ENV PHP_EXT_XDEBUG_VERSION="3.2.1"
 
 RUN install-php-extensions \
       apcu \
+      ftp \
       gd \
       mbstring \
       redis \

@@ -1,11 +1,12 @@
 FROM <?php printf("dunglas/frankenphp:latest-php%s-bookworm", $version) ?>
 
-ENV PHP_EXT_APCU_VERSION "<?php echo $php_ext_acpu_version ?>"
-ENV PHP_EXT_REDIS_VERSION "<?php echo $php_ext_redis_version ?>"
-ENV PHP_EXT_XDEBUG_VERSION "<?php echo $php_ext_xdebug_version ?>"
+ENV PHP_EXT_APCU_VERSION="<?php echo $php_ext_acpu_version ?>"
+ENV PHP_EXT_REDIS_VERSION="<?php echo $php_ext_redis_version ?>"
+ENV PHP_EXT_XDEBUG_VERSION="<?php echo $php_ext_xdebug_version ?>"
 
 RUN install-php-extensions \
       apcu \
+      ftp \
       gd \
       mbstring \
       redis \
